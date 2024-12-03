@@ -7,7 +7,7 @@ dotenv.config();
 
 const stripe = new Stripe(process.env.STRIPE_SECRET)
 
-const frontend_Url = "https://tomato-frontend-eight.vercel.app";
+const frontend_Url = "https://tomato-food-web.vercel.app";
 const placeOrder = async (req, res) => {
   try {
     const { userId, items, amount, address } = req.body;
