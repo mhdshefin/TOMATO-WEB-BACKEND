@@ -1,7 +1,8 @@
 import userModel from "../Models/userModels.js"
 import jwt from 'jsonwebtoken'
 import validator  from 'validator'
-import bcrypt from 'bcrypt'
+const bcrypt = require('bcryptjs');
+
 
 
 // login user
