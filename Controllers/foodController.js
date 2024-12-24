@@ -8,12 +8,14 @@ const addFood = async (req, res) => {
 
     try {
         const { name, description, price, category } = req.body;
-
+        
         if (!req.file) {
             return res.status(400).json({ success: false, message: "No image file provided" });
         }
         const image = req.file.path
         let result = await cloudianry.uploader.upload(image, { resource_type: 'image' });
+        
+        console.log(name,description,price,image);
 
         fs.unlinkSync(req.file.path);
         const food = new foodModel({
