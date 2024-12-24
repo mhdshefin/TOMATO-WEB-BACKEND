@@ -9,10 +9,11 @@ const addFood = async (req, res) => {
     try {
         const { name, description, price, category } = req.body;
 
-        const image = req.file ? req.file.path : null;
-
+        if (!req.file) {
+            return res.status(400).json({ success: false, message: "No image file provided" });
+        }
+        const image = req.file.path
         let result = await cloudianry.uploader.upload(image, { resource_type: 'image' });
-        console.log(result.secure_url);
 
         fs.unlinkSync(req.file.path);
         const food = new foodModel({
@@ -24,7 +25,7 @@ const addFood = async (req, res) => {
         })
         await food.save()
         console.log(food);
-        
+
         res.json({ success: true, message: "Food added" })
     } catch (error) {
         console.log(error)
