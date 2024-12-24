@@ -6,6 +6,7 @@ import userRouter from './Routes/userRouter.js';
 import dotenv from 'dotenv'
 import cartRouter from './Routes/cartRoute.js';
 import orderRouter from './Routes/orderRoute.js';
+import connectCloudinary from './Config/cloudinary.js';
 
 
 dotenv.config()
@@ -24,6 +25,7 @@ app.use(cors())
 // database connection
 
 DBconnect()
+connectCloudinary()
 
 // api endpoints
 

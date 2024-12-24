@@ -1,4 +1,4 @@
-import mongoose, { mongo, Types } from "mongoose";
+import mongoose from "mongoose";
 
 const FoodShcema = new mongoose.Schema({
     name:{type:String,requireed:true},
